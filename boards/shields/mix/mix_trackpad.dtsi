@@ -13,14 +13,20 @@
         status = "okay";
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_xy_scaler MIX_MOUSE_SPEED_NUM MIX_MOUSE_SPEED_DEN>;
+            <&zip_xy_scaler MIX_MOUSE_SPEED_NUM MIX_MOUSE_SPEED_DEN>,
+            <&zip_scroll_transform (MIX_EDGE_SCROLL_TRANSFORM)>,
+            <&zip_scroll_scaler MIX_EDGE_SCROLL_SPEED_NUM MIX_EDGE_SCROLL_SPEED_DEN>;
 
+        // Base processors are skipped while a scroll layer is active, so edge scroll is handled
+        // here again, and motion is scaled before the scroll mapping to leave edge scroll intact
         scroller {
             layers = <MIX_SCROLL_LAYERS>;
             input-processors =
-                <&zip_xy_to_scroll_mapper>,
-                <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>,
-                <&zip_scroll_scaler MIX_SCROLL_SPEED_NUM MIX_SCROLL_SPEED_DEN>;
+                <&zip_scroll_transform (MIX_EDGE_SCROLL_TRANSFORM)>,
+                <&zip_scroll_scaler MIX_EDGE_SCROLL_SPEED_NUM MIX_EDGE_SCROLL_SPEED_DEN>,
+                <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+                <&zip_xy_scaler MIX_SCROLL_SPEED_NUM MIX_SCROLL_SPEED_DEN>,
+                <&zip_xy_to_scroll_mapper>;
         };
     };
 };

@@ -82,6 +82,8 @@
         primary-tap-enable;
         // Tap in the top right corner = right click. Only in the ArtemYurov/zephyr fork for now
         secondary-tap-enable;
+        // Scroll by sliding along the right edge. Only in the ArtemYurov/zephyr fork for now
+        scroll-enable;
     };
 };
 
