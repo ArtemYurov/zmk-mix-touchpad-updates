@@ -80,6 +80,8 @@
         // Enable trackpad sleep mode after 5 sec without touch
         sleep-mode-enable;
         primary-tap-enable;
+        // Tap in the top right corner = right click. Only in the ArtemYurov/zephyr fork for now
+        secondary-tap-enable;
     };
 };
 
