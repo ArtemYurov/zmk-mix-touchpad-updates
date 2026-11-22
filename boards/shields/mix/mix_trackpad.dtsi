@@ -7,9 +7,25 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 / {
+    // zmk-cirque-input-rotate: while rotation is on, only the listener below may read &glidepoint
+    glidepoint_rotate: glidepoint_rotate {
+        compatible = "zmk,cirque-input-rotate";
+        input = <&glidepoint>;
+        angle = <(MIX_TRACKPAD_ROTATION)>;
+#if MIX_TRACKPAD_ROTATION != 0
+        status = "okay";
+#else
+        status = "disabled";
+#endif
+    };
+
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
+#if MIX_TRACKPAD_ROTATION != 0
+        device = <&glidepoint_rotate>;
+#else
         device = <&glidepoint>;
+#endif
         status = "okay";
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,

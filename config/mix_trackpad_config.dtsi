@@ -13,6 +13,9 @@
 /* Cirque trackpad sensitivity: "1x" (default), "2x", "4x" */
 #define MIX_CIRQUE_SENSITIVITY "2x"
 
+/* Trackpad rotation in degrees, counterclockwise in the trackpad's raw frame; 0 = off */
+#define MIX_TRACKPAD_ROTATION -30
+
 /* Mouse pointer speed: 5/2 (@1x default), 5/2 (@2x fast), 3/1 (very fast) */
 #define MIX_MOUSE_SPEED_NUM 5
 #define MIX_MOUSE_SPEED_DEN 2

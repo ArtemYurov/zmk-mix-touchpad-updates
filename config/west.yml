@@ -14,5 +14,8 @@ manifest:
   - name: nice-view-central-relay
     url: https://github.com/ArtemYurov/nice-view-central-relay
     revision: main
+  - name: zmk-cirque-input-rotate
+    url: https://github.com/ArtemYurov/zmk-cirque-input-rotate
+    revision: main
   self:
     path: config
