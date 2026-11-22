@@ -62,6 +62,7 @@ manifest:
 | `cirque-input-module`           | Cirque Pinnacle trackpad driver (out-of-tree)                            | Used on `zmk-v0.3` only — ZMK `main` has the binding built-in |
 | `zmk-central-states-relay`      | Relays layer/BLE/battery state from central to peripheral                | Same revision on both branches                        |
 | `nice-view-central-relay`       | Drives `nice!view` on the peripheral half from the relayed central state | `main` on ZMK `main`, `zmk-v0.3` on the v0.3 branch   |
+| `zmk-cirque-input-rotate`      | Rotates the trackpad's X/Y motion by `MIX_TRACKPAD_ROTATION`             | ZMK v0.4 branches only (Zephyr Pinnacle driver)       |
 
 **Rules:**
 - Every entry must carry an explicit `revision:`. Don't rely on the default branch.
@@ -145,6 +146,9 @@ These are defaults — anything in `config/*.conf` overrides them.
 /* Cirque hardware sensitivity: "1x" (default), "2x", "4x" */
 #define MIX_CIRQUE_SENSITIVITY "2x"
 
+/* Trackpad rotation in degrees, counterclockwise in the trackpad's raw frame; 0 = off */
+#define MIX_TRACKPAD_ROTATION -30
+
 /* Mouse pointer speed: numerator / denominator (higher = faster) */
 #define MIX_MOUSE_SPEED_NUM 5
 #define MIX_MOUSE_SPEED_DEN 2
@@ -162,6 +166,7 @@ Guidance:
 | Pointer overshoots, hard to land cursor  | Drop `MIX_CIRQUE_SENSITIVITY` to `"1x"` or lower the speed ratio |
 | Scroll too fast                          | Increase `MIX_SCROLL_SPEED_DEN` (e.g. from `30` to `60`)         |
 | Scroll mode never activates              | Adjust `MIX_SCROLL_LAYERS` to include the layer you actually hold |
+| A natural vertical stroke drifts sideways | Adjust `MIX_TRACKPAD_ROTATION`; flip the sign if the drift grows  |
 
 ## `config/mix.json`
 
