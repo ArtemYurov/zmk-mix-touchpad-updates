@@ -5,18 +5,14 @@ manifest:
 
   projects:
   - name: zmk
-    remote: zmkfirmware
-    revision: v0.3
+    url: https://github.com/ArtemYurov/zmk
+    revision: mix/cirque-pinnacle-main
     import: app/west.yml
-  - name: cirque-input-module
-    url: https://github.com/geeksville/cirque-input-module
-    revision: main
-    path: modules/cirque-input-module
   - name: zmk-central-states-relay
     url: https://github.com/ArtemYurov/zmk-central-states-relay
     revision: main
   - name: nice-view-central-relay
     url: https://github.com/ArtemYurov/nice-view-central-relay
-    revision: zmk-v0.3
+    revision: main
   self:
     path: config
