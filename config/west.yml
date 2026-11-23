@@ -6,14 +6,11 @@ manifest:
   projects:
   - name: zmk
     url: https://github.com/ArtemYurov/zmk
-    revision: mix/cirque-pinnacle-main
+    revision: mix/state-sync
     import: app/west.yml
-  - name: zmk-central-states-relay
-    url: https://github.com/ArtemYurov/zmk-central-states-relay
-    revision: main
   - name: nice-view-central-relay
     url: https://github.com/ArtemYurov/nice-view-central-relay
-    revision: main
+    revision: feature/zmk-state-sync
   - name: zmk-cirque-input-rotate
     url: https://github.com/ArtemYurov/zmk-cirque-input-rotate
     revision: main
